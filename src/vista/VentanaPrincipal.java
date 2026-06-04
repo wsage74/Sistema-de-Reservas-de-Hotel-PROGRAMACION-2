@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vista;
 
-/**
- *
- * @author Espitia
- */
+import controlador.HotelController;
+import javax.swing.JOptionPane;
+import modelo.Hotel;
+
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName());
@@ -15,10 +11,61 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
+    private HotelController controller;
+    private Hotel hotel;
+    
     public VentanaPrincipal() {
         initComponents();
+        setTitle("Hotel");
+        this.setLocationRelativeTo(null);
+        controller = new HotelController(this);
+        // Cargar hotel desde archivo al iniciar
+        Hotel hotelGuardado = controller.getHotel();
+        if (hotelGuardado != null && hotelGuardado.esValido()) {
+            this.hotel = hotelGuardado;
+            cargarHotel(this.hotel);
+            bloquearCampos();
+        }
     }
 
+    public String getTxtDireccionHotel() {
+        return txtDireccionHotel.getText().trim();
+    }
+
+    public String getTxtIdHotel() {
+        return txtIdHotel.getText().trim();
+    }
+
+    public String getTxtNombreHotel() {
+        return txtNombreHotel.getText().trim();
+    }
+    
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+        cargarHotel(hotel);
+    }
+
+    public void bloquearCampos() {
+        txtIdHotel.setEnabled(false);
+        txtNombreHotel.setEnabled(false);
+        txtDireccionHotel.setEnabled(false);
+    }
+    
+    public void EditarCampos(){
+        txtIdHotel.setEnabled(true);
+        txtNombreHotel.setEnabled(true);
+        txtDireccionHotel.setEnabled(true);
+        //txtIdHotel.setText("");
+        //txtNombreHotel.setText("");
+        //txtDireccionHotel.setText("");
+    }
+    
+    public void cargarHotel(Hotel h) {
+        txtIdHotel.setText(h.getIdHotel());
+        txtNombreHotel.setText(h.getNombre());
+        txtDireccionHotel.setText(h.getDireccion());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,21 +75,275 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblTitulo = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        btnGestionarClientes = new javax.swing.JButton();
+        btnGestionarReservas = new javax.swing.JButton();
+        btnGestionarPagos = new javax.swing.JButton();
+        btnGestionarHab = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnEditarHotel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnGuardarHotel = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtIdHotel = new javax.swing.JTextField();
+        txtNombreHotel = new javax.swing.JTextField();
+        txtDireccionHotel = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(240, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(242, 246, 255));
+
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        lblTitulo.setText("GESTION DEL HOTEL");
+
+        jPanel4.setBackground(new java.awt.Color(255, 252, 255));
+
+        btnGestionarClientes.setBackground(new java.awt.Color(96, 165, 250));
+        btnGestionarClientes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnGestionarClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarClientes.setText("GESTIONAR CLIENTES");
+        btnGestionarClientes.addActionListener(this::btnGestionarClientesActionPerformed);
+
+        btnGestionarReservas.setBackground(new java.awt.Color(96, 165, 250));
+        btnGestionarReservas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnGestionarReservas.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarReservas.setText("GESTIONAR RESERVAS");
+        btnGestionarReservas.addActionListener(this::btnGestionarReservasActionPerformed);
+
+        btnGestionarPagos.setBackground(new java.awt.Color(96, 165, 250));
+        btnGestionarPagos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnGestionarPagos.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarPagos.setText("GESTIONAR PAGOS");
+        btnGestionarPagos.addActionListener(this::btnGestionarPagosActionPerformed);
+
+        btnGestionarHab.setBackground(new java.awt.Color(96, 165, 250));
+        btnGestionarHab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnGestionarHab.setForeground(new java.awt.Color(255, 255, 255));
+        btnGestionarHab.setText("GESTIONAR HABITACIONES");
+        btnGestionarHab.addActionListener(this::btnGestionarHabActionPerformed);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnGestionarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionarReservas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionarHab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionarPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(btnGestionarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGestionarReservas, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGestionarHab, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnGestionarPagos, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 252, 255));
+
+        btnEditarHotel.setBackground(new java.awt.Color(96, 225, 105));
+        btnEditarHotel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnEditarHotel.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarHotel.setText("EDITAR");
+        btnEditarHotel.addActionListener(this::btnEditarHotelActionPerformed);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("DATOS DEL HOTEL");
+
+        btnGuardarHotel.setBackground(new java.awt.Color(96, 225, 105));
+        btnGuardarHotel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnGuardarHotel.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarHotel.setText("GUARDAR");
+        btnGuardarHotel.addActionListener(this::btnGuardarHotelActionPerformed);
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setText("ID");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setText("NOMBRE");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setText("DIRECCION");
+
+        txtDireccionHotel.addActionListener(this::txtDireccionHotelActionPerformed);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnGuardarHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(btnEditarHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(63, 63, 63)
+                        .addComponent(txtIdHotel))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreHotel)
+                            .addComponent(txtDireccionHotel))))
+                .addGap(17, 17, 17))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDireccionHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardarHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(lblTitulo)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGestionarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarClientesActionPerformed
+        if (hotel == null || !hotel.esValido()) {
+            JOptionPane.showMessageDialog(this, "Primero debes crear el hotel");
+            return;
+        }
+        // Ocultar ventana actual
+        this.setVisible(false);
+
+        // Abrir nueva ventana (formulario de cliente)
+        ClienteForm vista = new ClienteForm();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null); // centrar pantalla
+    }//GEN-LAST:event_btnGestionarClientesActionPerformed
+
+    private void btnGestionarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarPagosActionPerformed
+        if (hotel == null || !hotel.esValido()) {
+            JOptionPane.showMessageDialog(this, "Primero debes crear el hotel");
+            return;
+        }
+        // Ocultar ventana actual
+        this.setVisible(false);
+
+        // Abrir nueva ventana (formulario de pago)
+        PagoForm vista = new PagoForm();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null); // centrar pantalla
+    }//GEN-LAST:event_btnGestionarPagosActionPerformed
+
+    private void btnGestionarReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarReservasActionPerformed
+        if (hotel == null || !hotel.esValido()) {
+            JOptionPane.showMessageDialog(this, "Primero debes crear el hotel");
+            return;
+        }
+        // Ocultar ventana actual
+        this.setVisible(false);
+
+        // Abrir nueva ventana (formulario de cliente)
+        ReservaForm vista = new ReservaForm();
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null); // centrar pantalla
+    }//GEN-LAST:event_btnGestionarReservasActionPerformed
+
+    private void btnEditarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarHotelActionPerformed
+        EditarCampos();
+    }//GEN-LAST:event_btnEditarHotelActionPerformed
+
+    private void btnGuardarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarHotelActionPerformed
+        controller.agregarHotel();
+    }//GEN-LAST:event_btnGuardarHotelActionPerformed
+
+    private void txtDireccionHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionHotelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionHotelActionPerformed
+
+    private void btnGestionarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarHabActionPerformed
+        if (hotel == null || !hotel.esValido()) {
+            JOptionPane.showMessageDialog(this, "Primero debes crear el hotel");
+            return;
+        }
+
+        this.setVisible(false);
+
+        HabForm vista = new HabForm(hotel);
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnGestionarHabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +371,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditarHotel;
+    private javax.swing.JButton btnGestionarClientes;
+    private javax.swing.JButton btnGestionarHab;
+    private javax.swing.JButton btnGestionarPagos;
+    private javax.swing.JButton btnGestionarReservas;
+    private javax.swing.JButton btnGuardarHotel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextField txtDireccionHotel;
+    private javax.swing.JTextField txtIdHotel;
+    private javax.swing.JTextField txtNombreHotel;
     // End of variables declaration//GEN-END:variables
 }

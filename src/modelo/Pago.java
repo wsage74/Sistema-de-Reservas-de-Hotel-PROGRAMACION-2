@@ -1,17 +1,17 @@
 package modelo;
 
 public class Pago {
-    private int idPago;
+    private String idPago;
     private double monto;
     private String metodoPago;
 
     private Reserva reserva;
 
-    public int getIdPago() {
+    public String getIdPago() {
         return idPago;
     }
 
-    public void setIdPago(int idPago) {
+    public void setIdPago(String idPago) {
         this.idPago = idPago;
     }
 

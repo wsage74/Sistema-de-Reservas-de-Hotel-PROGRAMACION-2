@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 public class Habitacion {
-    private int numHabitacion;
+    private String numHabitacion;
     private String tipo;
     private double precio;
 
@@ -14,7 +14,7 @@ public class Habitacion {
         
     }
 
-    public Habitacion(int numHabitacion, String tipo, double precio, Hotel hotel) {
+    public Habitacion(String numHabitacion, String tipo, double precio, Hotel hotel) {
         this.numHabitacion = numHabitacion;
         this.tipo = tipo;
         this.precio = precio;
@@ -22,11 +22,11 @@ public class Habitacion {
         reservas = new ArrayList<>();
     }
   
-    public int getNumHabitacion() {
+    public String getNumHabitacion() {
         return numHabitacion;
     }
 
-    public void setNumHabitacion(int numHabitacion) {
+    public void setNumHabitacion(String numHabitacion) {
         this.numHabitacion = numHabitacion;
     }
 
@@ -62,5 +62,8 @@ public class Habitacion {
         this.reservas = reservas;
     }
 
-    
+    @Override
+    public String toString() {
+        return numHabitacion + " - " + tipo;
+    }
 }

@@ -1,19 +1,30 @@
 package modelo;
 
 public class Reserva {
-    private int idReserva;
-    private String fechaIngreso;
-    private String fechaSalida;
-
+    private String idReserva;
     private Cliente cliente;
     private Habitacion habitacion;
-    private Pago pago;
+    private String fechaIngreso;
+    private String fechaSalida;
+    private String pago; //PRUEBA, SE MODIFICA LUEGO DE CREAR MODULO PAGO
+
+    public Reserva() {
+    }
+
+    public Reserva(String idReserva, Cliente cliente, Habitacion habitacion, String fechaIngreso, String fechaSalida, String pago) {
+        this.idReserva = idReserva;
+        this.cliente = cliente;
+        this.habitacion = habitacion;
+        this.fechaIngreso = fechaIngreso;
+        this.fechaSalida = fechaSalida;
+        this.pago = pago;
+    }
     
-    public int getIdReserva() {
+    public String getIdReserva() {
         return idReserva;
     }
 
-    public void setIdReserva(int idReserva) {
+    public void setIdReserva(String idReserva) {
         this.idReserva = idReserva;
     }
 
@@ -49,11 +60,11 @@ public class Reserva {
         this.habitacion = habitacion;
     }
 
-    public Pago getPago() {
+    public String getPago() {
         return pago;
     }
 
-    public void setPago(Pago pago) {
+    public void setPago(String pago) {
         this.pago = pago;
     }
 }

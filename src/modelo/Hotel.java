@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 
 public class Hotel {
-    private int idHotel;
+    private String idHotel;
     private String nombre;
     private String direccion;
     
@@ -13,18 +13,18 @@ public class Hotel {
         
     }
     
-    public Hotel(int idHotel, String nombre, String direccion) {
+    public Hotel(String idHotel, String nombre, String direccion) {
         this.idHotel = idHotel;
         this.nombre = nombre;
         this.direccion = direccion;
         habitaciones = new ArrayList<>();
     }
         
-    public int getIdHotel() {
+    public String getIdHotel() {
         return idHotel;
     }
 
-    public void setIdHotel(int idHotel) {
+    public void setIdHotel(String idHotel) {
         this.idHotel = idHotel;
     }
 
@@ -52,5 +52,10 @@ public class Hotel {
         this.habitaciones = habitaciones;
     }
     
+    public boolean esValido() {
+        return idHotel != null && !idHotel.isEmpty()
+            && nombre != null && !nombre.isEmpty()
+            && direccion != null && !direccion.isEmpty();
+    }
     
 }
