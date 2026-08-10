@@ -101,11 +101,17 @@ public class ClienteForm extends javax.swing.JFrame {
                 "ID", "Nombre", "Número"
             }
         ));
+        tblLista.setAutoscrolls(false);
         tblLista.setEnabled(false);
+        tblLista.setFocusable(false);
+        tblLista.setOpaque(false);
+        tblLista.setRequestFocusEnabled(false);
         tblLista.setRowHeight(25);
         tblLista.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tblLista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblLista.setShowGrid(false);
-        tblLista.setShowHorizontalLines(true);
+        tblLista.setUpdateSelectionOnSort(false);
+        tblLista.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(tblLista);
         if (tblLista.getColumnModel().getColumnCount() > 0) {
             tblLista.getColumnModel().getColumn(0).setResizable(false);
@@ -135,7 +141,7 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("DATOS DEL CLIENTE");
 
-        btnAgregar.setBackground(new java.awt.Color(96, 225, 105));
+        btnAgregar.setBackground(new java.awt.Color(68, 153, 74));
         btnAgregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("AGREGAR");
@@ -212,7 +218,7 @@ public class ClienteForm extends javax.swing.JFrame {
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(this::btnEliminarActionPerformed);
 
-        btnSalir.setBackground(new java.awt.Color(255, 221, 16));
+        btnSalir.setBackground(new java.awt.Color(255, 183, 20));
         btnSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("SALIR");

@@ -93,7 +93,7 @@ public class HabController {
         form.agregarTab("Hab " + h.getNumHabitacion(), panel);
     }
 
-    // Devuelve la fecha de ingreso de la próxima reserva activa o futura, o null si disponible
+    //Devuelve la fecha de ingreso de la próxima reserva activa o futura, o null si disponible
     private String calcularFechaOcupacion(Habitacion h) {
         LocalDate hoy = LocalDate.now();
 
@@ -112,7 +112,7 @@ public class HabController {
         return null;
     }
 
-    // Devuelve la fecha de salida de la reserva activa o futura más próxima, o null si disponible
+    //Devuelve la fecha de salida de la reserva activa o futura más próxima, o null si disponible
     private String calcularFechaLiberacion(Habitacion h) {
         LocalDate hoy = LocalDate.now();
 
@@ -155,7 +155,7 @@ public class HabController {
         return "Disponible";
     }
 
-    // ─── Buscar / Modificar / Eliminar ────────────────────────────────────────
+    //─── Buscar / Modificar / Eliminar ────────────────────────────────────────
 
     public void buscarHabitacion() {
         String id = JOptionPane.showInputDialog(null,

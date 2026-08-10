@@ -156,7 +156,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 252, 255));
 
-        btnEditarHotel.setBackground(new java.awt.Color(96, 225, 105));
+        btnEditarHotel.setBackground(new java.awt.Color(68, 153, 74));
         btnEditarHotel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnEditarHotel.setForeground(new java.awt.Color(255, 255, 255));
         btnEditarHotel.setText("EDITAR");
@@ -165,7 +165,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("DATOS DEL HOTEL");
 
-        btnGuardarHotel.setBackground(new java.awt.Color(96, 225, 105));
+        btnGuardarHotel.setBackground(new java.awt.Color(68, 153, 74));
         btnGuardarHotel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnGuardarHotel.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarHotel.setText("GUARDAR");

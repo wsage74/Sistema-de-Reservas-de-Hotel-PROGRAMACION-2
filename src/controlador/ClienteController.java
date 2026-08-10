@@ -18,7 +18,7 @@ public class ClienteController {
         this.form = form;
         this.dtm = dtm;
         this.arch = new archivo();
-        this.listaClientes = arch.leerClientes(); // carga desde archivo al iniciar
+        this.listaClientes = arch.leerClientes(); //carga desde archivo al iniciar
         actualizarTabla();
     }
 

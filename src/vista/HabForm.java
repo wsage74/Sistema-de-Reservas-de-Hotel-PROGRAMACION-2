@@ -128,7 +128,7 @@ public class HabForm extends javax.swing.JFrame {
         cmbTiposHabitaciones.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cmbTiposHabitaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Habitación individual", "Habitación doble", "Suite junior", "Suite ejecutiva", "Suite presidencial" }));
 
-        btnAgregarHab.setBackground(new java.awt.Color(96, 165, 250));
+        btnAgregarHab.setBackground(new java.awt.Color(68, 153, 74));
         btnAgregarHab.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAgregarHab.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarHab.setText("AGREGAR");
@@ -141,22 +141,22 @@ public class HabForm extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(89, 89, 89))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2)
-                        .addComponent(txtNumHabitacion)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addComponent(txtPrecioHabitacion)
-                        .addComponent(cmbTiposHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNumHabitacion)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(txtPrecioHabitacion)
+                            .addComponent(cmbTiposHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
                         .addComponent(btnAgregarHab, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -193,7 +193,7 @@ public class HabForm extends javax.swing.JFrame {
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(this::btnEliminarActionPerformed);
 
-        btnSalir.setBackground(new java.awt.Color(255, 221, 16));
+        btnSalir.setBackground(new java.awt.Color(255, 183, 20));
         btnSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("SALIR");

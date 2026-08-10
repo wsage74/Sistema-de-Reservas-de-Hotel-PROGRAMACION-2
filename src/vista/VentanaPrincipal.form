@@ -274,7 +274,7 @@
             <Component class="javax.swing.JButton" name="btnEditarHotel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="69" green="e1" red="60" type="rgb"/>
+                  <Color blue="4a" green="99" red="44" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
@@ -299,7 +299,7 @@
             <Component class="javax.swing.JButton" name="btnGuardarHotel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="69" green="e1" red="60" type="rgb"/>
+                  <Color blue="4a" green="99" red="44" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>

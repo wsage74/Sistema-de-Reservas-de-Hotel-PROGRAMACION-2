@@ -161,7 +161,7 @@ public class ReservaForm extends javax.swing.JFrame {
 
         txtFechaSalida.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        btnAgregar.setBackground(new java.awt.Color(96, 165, 250));
+        btnAgregar.setBackground(new java.awt.Color(68, 153, 74));
         btnAgregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("AGREGAR");
@@ -252,7 +252,7 @@ public class ReservaForm extends javax.swing.JFrame {
         btnModificarReserva.setText("MODIFICAR");
         btnModificarReserva.addActionListener(this::btnModificarReservaActionPerformed);
 
-        btnSalirReserva.setBackground(new java.awt.Color(255, 221, 16));
+        btnSalirReserva.setBackground(new java.awt.Color(255, 183, 20));
         btnSalirReserva.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSalirReserva.setForeground(new java.awt.Color(255, 255, 255));
         btnSalirReserva.setText("SALIR");
